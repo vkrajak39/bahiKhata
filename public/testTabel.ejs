@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <h1>All database Transactions <%= rows.length %></h1>
+<table style="border: 1px ;">
+    <tr>
+        
+        <th>amount</th>
+        
+        <th>date</th>
+        
+        <th>time</th>
+    </tr>
+
+
+<% if(rows.length>0 ){
+
+    for(let i=0;i<rows.length;i++)
+    {
+    %>
+        
+        <tr>
+            <td><%=rows[i].amount %></td>
+            <td><%=rows[i].date %></td>
+            <td><%=rows[i].time %></td>
+        </tr>
+        
+    <%}
+
+
+}
+else
+{ %>
+
+    <h1>No data found</h1>
+
+<%
+} %>
+
+
+
+    
+
+</table>
+
+
+</body>
+</html>
