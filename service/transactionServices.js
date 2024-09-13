@@ -32,9 +32,13 @@ const addRecord = async (record)=>{
 
             console.log("Connected to db successfully");
 
-            let sql = `Insert into  transaction(transaction_type_id,amount,notes,date,time,bill_number,user_id,customer_id) values('${record.transaction_type_id}','${record.amount}','${record.notes}','${record.date}','${record.time}','${record.bill_number}','${record.user_id}','${record.customer_id}');`;
+            let sql = `Insert into  transaction(transaction_type_id,amount,notes,date,time,bill_number,user_id,customer_id) values(?,?,?,?,?,?,?,?);`;
 
-            conn.query(sql,(error,result)=>{
+            
+
+            // let sql = `Insert into  transaction(transaction_type_id,amount,notes,date,time,bill_number,user_id,customer_id) values('${record.transaction_type_id}','${record.amount}','${record.notes}','${record.date}','${record.time}','${record.bill_number}','${record.user_id}','${record.customer_id}');`;
+
+            conn.query(sql,[record.transaction_type_id,record.amount,record.notes,record.date,record.time,record.bill_number,record.user_id,record.customer_id],(error,result)=>{
                 if(error) return reject(error);
 
                 console.log('query executed successfully ');

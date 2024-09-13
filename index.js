@@ -1,9 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const { conn } = require('./database/connection');
+const { getAllTransactions,addRecord } = require('./service/transactionServices');
 
-const { conn } = require('./database/connection')
-const { getAllTransactions,addRecord } = require('./service/transactionServices')
-
+const {getLogin} = require('./database/route');
 
 const app = express();
 
@@ -58,18 +58,18 @@ app.listen(3000, () => {
 
 app.get('/', (req, res) => {
 
-
-
     res.sendFile(__dirname + "/public/index.html");
 });
 
 
 
+app.post('/login',(req,res)=>{
+    console.log(req.body);
+    res.sendFile(__dirname + "/public/index.html")
 
-app.get('/login',(req,res)=>{
-
-    res.render(__dirname + '/views/login.ejs');
 });
+
+app.get('/login',getLogin);
 
 
 app.get('/register',(req,res)=>{
@@ -82,7 +82,7 @@ app.get('/register',(req,res)=>{
 app.get('/addTransactions',(req,res)=>{
 
     res.render(__dirname+"/public/transaction")
-    // res.redirect('/');
+    
 })
 
 
@@ -97,6 +97,7 @@ app.get('/getTransactions', async (req, res) => {
         // Render the EJS template and pass the rows data
         res.render(__dirname+"/public/testTabel", { rows });
 
+        console.log
         console.log("number of rows are "+ rows.lenght);
 
         
