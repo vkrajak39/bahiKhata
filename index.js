@@ -1,9 +1,15 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const bcrypt = require('bcrypt')
+
 const { conn } = require('./database/connection');
 const { getAllTransactions,addRecord } = require('./service/transactionServices');
 
 const {getLogin} = require('./database/route');
+
+
+
+
 
 const app = express();
 
@@ -65,17 +71,29 @@ app.get('/', (req, res) => {
 
 app.post('/login',(req,res)=>{
     console.log(req.body);
+
+
+
+
     res.sendFile(__dirname + "/public/index.html")
 
 });
 
-app.get('/login',getLogin);
+app.get('/login',(req,res)=>{
+res.render(__dirname+"/views/login.ejs");
+});
 
 
 app.get('/register',(req,res)=>{
 
     res.render(__dirname + '/views/register.ejs')
 })
+
+app.post('/register',(req,res)=>{
+
+    
+
+});
 
 
 

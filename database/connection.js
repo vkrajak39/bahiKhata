@@ -25,6 +25,7 @@ module.exports = { conn };
 
 // ************ new connector code ****************
 
+/**
 // const mysql = require('mysql2');
 
 // Singleton for MySQL connection
@@ -91,3 +92,5 @@ const instance = new Database();
 Object.freeze(instance); // Freeze the instance to prevent modification
 
 module.exports = instance;
+
+ */
