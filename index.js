@@ -6,22 +6,49 @@ const path = require('path');
 const { conn } = require('./database/connection');
 const { getAllTransactions,addRecord } = require('./service/transactionServices');
 
-const {getLogin} = require('./database/route');
 
 
+const loginService=require('./service/loginService')
 
+const {loginRouter} = require('./router/login.js')
 
 
 const app = express();
 
 
+
+// middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+
+
+app.use(express.static(path.join(__dirname, 'public')));
+
+
+
+app.use('/login',loginRouter)
+
 
 // Set EJS as the template engine
 app.set('view engine', 'ejs');
 
-<<<<<<< HEAD
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 app.get('/records',(req,res) => {
     const message = req.query.message || null;
     res.render(__dirname+"/views/records.ejs", { message: message });
@@ -34,9 +61,8 @@ app.post('/records',(req,res)=>{
 });
 
 
-=======
-app.use(express.static(path.join(__dirname, 'public')));
->>>>>>> c22d68e746b5bed382169e55d41597b8fb1de279
+
+
 
 
 // Connect to MySQL
@@ -60,7 +86,7 @@ const sql =
 //     }
 // });
 
-conn.close;
+// conn.close;
 
 
 
@@ -84,20 +110,6 @@ app.get('/', (req, res) => {
 });
 
 
-
-app.post('/login',(req,res)=>{
-    console.log(req.body);
-
-
-
-
-    res.sendFile(__dirname + "/public/index.html")
-
-});
-
-app.get('/login',(req,res)=>{
-res.render(__dirname+"/views/login.ejs");
-});
 
 
 app.get('/register',(req,res)=>{
@@ -163,4 +175,30 @@ app.post('/addTransactions',async (req,res)=>{
     }
 
 
+});
+
+
+
+
+// testing purposes
+
+app.get('/api/v1/test',(req,res)=>{
+
+    res.status(200).json({
+        status:"success",
+        results: 3,
+        data:[
+                {   id:1,
+                    name:"vineet"
+                },
+                {   id:2,
+                    name:"kumar"
+                },
+                {
+                    id:3,
+                    name:"rajak"
+                }
+            ]
+        
+    })
 });
