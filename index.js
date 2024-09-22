@@ -20,6 +20,17 @@ app.use(bodyParser.json());
 // Set EJS as the template engine
 app.set('view engine', 'ejs');
 
+app.get('/records',(req,res) => {
+    const message = req.query.message || null;
+    res.render(__dirname+"/views/records.ejs", { message: message });
+});
+
+
+app.post('/records',(req,res)=>{
+    console.log(req.body);
+    res.sendFile(__dirname + "/public/index.html")
+});
+
 
 
 
