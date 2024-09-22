@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt')
+const path = require('path');
 
 const { conn } = require('./database/connection');
 const { getAllTransactions,addRecord } = require('./service/transactionServices');
@@ -20,6 +21,7 @@ app.use(bodyParser.json());
 // Set EJS as the template engine
 app.set('view engine', 'ejs');
 
+<<<<<<< HEAD
 app.get('/records',(req,res) => {
     const message = req.query.message || null;
     res.render(__dirname+"/views/records.ejs", { message: message });
@@ -32,6 +34,9 @@ app.post('/records',(req,res)=>{
 });
 
 
+=======
+app.use(express.static(path.join(__dirname, 'public')));
+>>>>>>> c22d68e746b5bed382169e55d41597b8fb1de279
 
 
 // Connect to MySQL
