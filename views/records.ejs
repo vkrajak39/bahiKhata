@@ -16,7 +16,7 @@
 
 </head>
 <body>
-    <div class="container">
+    <div class="container mt-5">
         <h1>Records</h1>
         
         <!-- Alert Message -->
@@ -28,15 +28,104 @@
 
         <!-- Add New Record Form -->
         <form action="/records/add" method="POST" class="mb-4">
+            <button type="submit" class="btn btn-primary rounded-pill px-4">
+                <i class="fas fa-plus me-2"></i> Add
+            </button>
             <div class="mb-3">
-                <label for="name" class="form-label">Record Name</label>
-                <input type="text" class="form-control" id="name" name="name" required>
+                <label for="name" class="form-label"></label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="search" required>
             </div>
             <div class="mb-3">
-                <label for="value" class="form-label">Record Value</label>
-                <input type="text" class="form-control" id="value" name="value" required>
+                <label for="value" class="form-label">Filter</label>
+                <input type="text" class="form-control" id="value" name="value" placeholder="No Saved Filters" required>
             </div>
-            <button type="submit" class="btn btn-primary">Add Record</button>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary rounded-pill px-4">No Filter</button>
+                <button type="submit" class="btn btn-primary rounded-pill px-4">Save</button>
+                     
+                
+            </div>
+            <div class="container">
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="#" data-bs-toggle="collapse" data-bs-target="#collapseAccounts" aria-expanded="false">
+                          <i class="fas fa-caret-right"></i> ACCOUNTS
+                        </a>
+                        <a href="#"><span class="float-end">Cash</span></a>
+                        <div class="collapse" id="collapseAccounts">
+                          <!-- Optional dropdown content for Accounts -->
+                        </div>
+                      </li>
+                  
+                      <!-- Categories -->
+                      <li>
+                        <a href="#" data-bs-toggle="collapse" data-bs-target="#collapseCategories" aria-expanded="false">
+                          <i class="fas fa-caret-right"></i> CATEGORIES
+                        </a>
+                        <a href="#"><span class="float-end">All</span></a>
+                        <div class="collapse" id="collapseCategories">
+                          <!-- Optional dropdown content for Categories -->
+                        </div>
+                      </li>
+                  
+                      <!-- Labels -->
+                      <li>
+                        <a href="#" data-bs-toggle="collapse" data-bs-target="#collapseLabels" aria-expanded="false">
+                          <i class="fas fa-caret-right"></i> LABELS
+                        </a>
+                        <a href="#"><span class="float-end">None</span></a>
+                        <div class="collapse" id="collapseLabels">
+                          <!-- Optional dropdown content for Labels -->
+                        </div>
+                      </li>
+                  
+                      <!-- Currencies -->
+                      <li>
+                        <a href="#" data-bs-toggle="collapse" data-bs-target="#collapseCurrencies" aria-expanded="false">
+                          <i class="fas fa-caret-right"></i> CURRENCIES
+                        </a>
+                        <a href="#"><span class="float-end">All</span></a>
+                        <div class="collapse" id="collapseCurrencies">
+                          <!-- Optional dropdown content for Currencies -->
+                        </div>
+                      </li>
+                  
+                      <!-- Record Types -->
+                      <li>
+                        <a href="#" data-bs-toggle="collapse" data-bs-target="#collapseRecordTypes" aria-expanded="false">
+                          <i class="fas fa-caret-right"></i> RECORD TYPES
+                        </a>
+                        <a href="#"><span class="float-end">All</span></a>
+                        <div class="collapse" id="collapseRecordTypes">
+                          <!-- Optional dropdown content for Record Types -->
+                        </div>
+                      </li>
+                  
+                      <!-- Payment Types -->
+                      <li>
+                        <a href="#" data-bs-toggle="collapse" data-bs-target="#collapsePaymentTypes" aria-expanded="false">
+                          <i class="fas fa-caret-right"></i> PAYMENT TYPES
+                        </a>
+                        <a href="#"><span class="float-end">All</span></a>
+                        <div class="collapse" id="collapsePaymentTypes">
+                          <!-- Optional dropdown content for Payment Types -->
+                        </div>
+                      </li>
+                  
+                      <!-- Record States -->
+                      <li>
+                        <a href="#" data-bs-toggle="collapse" data-bs-target="#collapseRecordStates" aria-expanded="false">
+                          <i class="fas fa-caret-right"></i> RECORD STATES
+                        </a>
+                        <a href="#"><span class="float-end">All</span></a>
+                        <div class="collapse" id="collapseRecordStates">
+                          <!-- Optional dropdown content for Record States -->
+                        </div>
+                      </li>
+                    
+                </ul>
+            </div>
+            
         </form>
         </table>
     </div>
