@@ -34,6 +34,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 // routing requests
 app.use('/login',loginRouter)
 
+
+// app.get('/login',(req,res)=>{
+//     res.render('path');
+// })
+
+
+
 app.use('/register',registerRouter);
 
 app.use('/dashboard', dashboradRouter)
@@ -54,9 +61,7 @@ app.set('view engine', 'ejs');
 
 
 
-
-
-
+// app.use('/records',recordsRouter)
 
 app.get('/records',(req,res) => {
     const message = req.query.message || null;
@@ -88,21 +93,13 @@ const sql =
     'INSERT INTO transaction VALUES (2,1, 5000,"testing","07/07/2024","12:00","billNo 123456",1,1)';
 
 
-// conn.query(sql, (err, results) => {
-//     if (err) throw err;
-//     else {
-//         console.log("data inserted");
-//     }
-// });
-
-// conn.close;
 
 
 
 
 
 
-// app.get
+
 
 
 
@@ -120,17 +117,6 @@ app.get('/', (req, res) => {
 
 
 
-
-// app.get('/register',(req,res)=>{
-
-//     res.render(__dirname + '/views/register.ejs')
-// })
-
-// app.post('/register',(req,res)=>{
-
-    
-
-// });
 
 
 

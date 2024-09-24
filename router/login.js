@@ -17,5 +17,12 @@ loginRouter.route('/')
     });
     
 
+    
+// "localhost:3000/login/user"
+    // loginRouter.route('/user')
+    // .get(()=>{})
+    // .post(()=>{})
+
+
 module.exports={loginRouter};
     
