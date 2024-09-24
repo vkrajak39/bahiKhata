@@ -3,6 +3,8 @@ const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt')
 const path = require('path');
 
+const {recordsRouter,test} = require('./router/record.js');
+
 const { conn } = require('./database/connection');
 const { getAllTransactions,addRecord } = require('./service/transactionServices');
 
@@ -34,7 +36,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // routing requests
 app.use('/login',loginRouter)
 
-
+console.log();
 // app.get('/login',(req,res)=>{
 //     res.render('path');
 // })
