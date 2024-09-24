@@ -8,9 +8,14 @@ const { getAllTransactions,addRecord } = require('./service/transactionServices'
 
 
 
-const loginService=require('./service/loginService')
 
 const {loginRouter} = require('./router/login.js')
+
+const {registerRouter} = require('./router/register.js')
+
+
+const {dashboradRouter} = require('./router/dashborad')
+
 
 
 const app = express();
@@ -26,8 +31,12 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-
+// routing requests
 app.use('/login',loginRouter)
+
+app.use('/register',registerRouter);
+
+app.use('/dashboard', dashboradRouter)
 
 
 // Set EJS as the template engine
@@ -112,16 +121,16 @@ app.get('/', (req, res) => {
 
 
 
-app.get('/register',(req,res)=>{
+// app.get('/register',(req,res)=>{
 
-    res.render(__dirname + '/views/register.ejs')
-})
+//     res.render(__dirname + '/views/register.ejs')
+// })
 
-app.post('/register',(req,res)=>{
+// app.post('/register',(req,res)=>{
 
     
 
-});
+// });
 
 
 
