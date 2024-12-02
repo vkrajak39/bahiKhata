@@ -177,6 +177,39 @@ app.post('/addTransactions',async (req,res)=>{
 
 
 
+app.get('/vineet',(req,res)=>{
+    res.render("login");
+})
+
+app.post('/update',(req,res)=>{
+
+    const userEmail =req.body.email 
+
+    let data;
+            conn.connect((error) => {
+                if (error) return reject(error);
+    
+                console.log("Connected to db successfully");
+    
+                let sql = "SELECT * FROM transaction where email=?";
+    
+                conn.query(sql, [userEmail], (error, results) => {
+                    if (error) return console,log(error);
+    
+                    
+    
+                    
+                    data=results;
+
+
+                    // update
+
+
+                });
+            });
+        
+        });
+
 // testing purposes
 
 app.get('/api/v1/test',(req,res)=>{

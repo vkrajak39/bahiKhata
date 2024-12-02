@@ -49,9 +49,6 @@ const verifyLoginData =  (req,res)=>{
                                 
                             });
                         }
-
-                        
-
                 })
             }
     })

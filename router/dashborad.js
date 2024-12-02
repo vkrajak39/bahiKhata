@@ -10,6 +10,8 @@ const path = require('path');
 
     dashboradRouter.route('/')
     .get((req,res)=>{
+
+        
         res.render(path.resolve(__dirname,'../views/dashboard.ejs'));
     })
 
